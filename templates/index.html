@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Rock or Hip-Hop</title>
+
+    <!-- Icons font CSS-->
+    
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+   
+    <!-- Main CSS-->
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" media="all">
+</head>
+
+<body>
+
+    <div class="page-wrapper bg-gra-01 p-t-130 p-b-100 font-poppins">
+        
+        <div class="wrapper wrapper--w680">
+           
+            <div class="card card-4">
+                
+                <div class="card-body">
+                    <h3 class="form-heading"><i>Classify whether your song is <b>Rock</b> or <b>HipHop</b> </i></h3>
+                    <form class='MainPageclass' action="{{ url_for('predict')}}" method="post">
+                        <br>
+                        <br>
+
+                         <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Acousticness</label>
+                                    <input class="input--style-4" type="text" name="Acousticness"placeholder="Example : 0.4870600" required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Danceability</label>
+                                    <input class="input--style-4" type="text" name="Danceability " placeholder="Example : 0.436556  " required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Energy</label>
+                                    <input class="input--style-4" type="text" name="Energy" placeholder="Example : 0.625126" required="required">
+                                
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Instrumentalness</label>
+                                    <div class="p-t-10">
+                                           <input class="input--style-4" type="text" name="Instrumentalness " placeholder="Example : 0.604096  " required="required">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Liveness</label>
+                                    <input class="input--style-4" type="text" name="Liveness " placeholder="Example : 0.187997  " required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Speechiness</label>
+                                    <input class="input--style-4" type="text" name="Speechiness " placeholder="Example : 0.104877  " required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Tempo</label>
+                                    <input class="input--style-4" type="text" name="Tempo" placeholder="Example :126.687" required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Valence</label>
+                                    <div class="p-t-10">
+                                           <input class="input--style-4" type="text" name="Valence " placeholder="Example : 0.453413  " required="required">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Predict</button>
+                        </div>
+                        <br>
+                        <br>
+                    <h2 class='ans'>
+
+
+                        {% if prediction_text==0 %}
+                        
+                        <p><img src="{{url_for('static',filename='Hip-Hop.gif')}}"></p>
+
+                        {% elif prediction_text==1 %}
+                        
+                        <p><img src="{{url_for('static',filename='52gw.gif')}}"></p>
+                        {% endif %}
+
+
+                    </h2>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
